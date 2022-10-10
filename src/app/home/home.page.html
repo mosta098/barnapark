@@ -1,0 +1,99 @@
+<!-- MENUUU -->
+
+<ion-menu side="start" menuId="custom" contentId="main" class="my-custom-menu">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Lista por nombres</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list class="list">
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main"></ion-router-outlet>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <ion-button (click)="openCustom()" fill="clear">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button> Parkings Barcelona
+      <ion-button style="float: right;" (click)="toggleFilter=!toggleFilter" fill="clear">
+        Filtros <ion-icon name="filter-outline"></ion-icon>
+      </ion-button>
+    </ion-title>
+    <ion-card *ngIf="toggleFilter">
+      <ion-card-content>
+
+
+
+<!--         <ion-label for="cars">Vehiculo:</ion-label>
+       <ion-select [(ngModel)]="vehiculo" placeholder="Selecciona vehiculo">
+          <ion-select-option value="coche">Coche</ion-select-option>
+          <ion-select-option value="moto">Moto</ion-select-option>
+        </ion-select>
+
+        <ion-card-subtitle>Precio por minuto:</ion-card-subtitle>
+        <ion-label>Mínimo:{{lastEmittedValueLower }} </ion-label>
+        <ion-label style="float: right;"> Máximo:{{lastEmittedValueUpper }}</ion-label>
+
+        <ion-range (ionChange)="onIonChange($event)" [dualKnobs]="true" [value]="{ lower: 0.01654, upper:  0.06302}"
+          min="0.000001" max="0.100000" step="0.000001"></ion-range> -->
+
+
+        <ion-label style="padding: 2%;">WC</ion-label>
+        <ion-checkbox (click)="filter_wc=!filter_wc" color="primary"></ion-checkbox><br>
+        <ion-label style="padding: 2%;">Carsharing</ion-label>
+        <ion-checkbox (click)="filter_carsharing=!filter_carsharing" color="primary"></ion-checkbox><br>
+
+        <ion-label style="padding: 2%;">Acceso Discapacitados</ion-label>
+        <ion-checkbox (click)="filter_handicap_access=!filter_handicap_access" color="primary"></ion-checkbox><br>
+
+        <ion-label style="padding: 2%;">Cargador Electrico</ion-label>
+        <ion-checkbox (click)="filter_elec_charger=!filter_elec_charger" color="primary"></ion-checkbox><br>
+
+        <ion-label style="padding: 2%;">Consigna</ion-label>
+        <ion-checkbox (click)="filter_consigna=!filter_consigna" color="primary"></ion-checkbox><br>
+
+        <ion-label style="padding: 2%;">App AgilPark</ion-label>
+        <ion-checkbox (click)="filter_agilPark=!filter_agilPark" color="primary"></ion-checkbox><br>
+
+        <ion-button (click)="Refresh()">Buscar</ion-button>
+
+      </ion-card-content>
+    </ion-card>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Parkings Barcelona</ion-title>
+
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+
+  </div>
+  <div id="map"></div>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title id="titol">{{titol}}</ion-card-title>
+      <ion-list id="parking_selected">
+        <label id="adress">{{adress}}</label><br>
+        <label id="price">{{price}}</label><br>
+        <label id="handicap">{{handicap}}</label><br>
+        <label id="wc">{{wc}}</label><br>
+        <label id="carcharge">{{carcharge}}</label><br>
+        <label id="consigna">{{consigna}}</label><br>
+        <label id="carsharing">{{carsharing}}</label><br>
+        <label id="agilPark">{{agilPark}}</label><br>
+        <label id="link_google">{{link_google}}</label><br>
+      </ion-list>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>
